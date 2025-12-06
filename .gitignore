@@ -1,0 +1,15 @@
+#.gitignore
+
+.vscode/
+test/
+
+# 오브젝트 파일
+*.o
+
+# 실행 파일(확장자 없는 경우)
+ch1_4
+ch1_5
+add.out
+
+# 코어 덤프
+core
