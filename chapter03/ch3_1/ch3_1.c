@@ -23,7 +23,7 @@ int main(void)
   printf("mtime = %ld\n", statbuf.st_mtim.tv_sec);
   printf("ctime = %ld\n", statbuf.st_ctim.tv_sec);
 
-  print("** old style\n");
+  printf("** old style\n");
   printf("atime = %ld\n", statbuf.st_atime);
   printf("mtime = %ld\n", statbuf.st_mtime);
   printf("ctime = %ld\n", statbuf.st_ctime);
