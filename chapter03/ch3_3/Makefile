@@ -1,8 +1,8 @@
 #makefile
 
-CC-gcc
+CC=gcc
 CFLAGS=
-OBJS=ch3_3.O
+OBJS=ch3_3.o
 LIBS=
 app:ch3_3
 
