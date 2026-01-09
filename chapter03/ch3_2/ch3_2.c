@@ -27,7 +27,7 @@ int main(void)
 
   printf("inode = %d\n",(int)statbuf.st_ino);//파일의 inode 번호
   printf("UID = %d\n", (int)statbuf.st_uid);//파일 소유자의 사용자 ID
-  close(df);
+  close(fd);
 
   return 0;
 }
