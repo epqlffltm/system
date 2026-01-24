@@ -6,10 +6,10 @@ int main(void)
 {
   struct stat statbuf;
 
-  chmod("linux.txt", S_IRWXUJ|S_IRGRP|S_IXGRP|S_IROTH);
+  chmod("linux.txt", S_IRWXU|S_IRGRP|S_IXGRP|S_IROTH);
 
   stat("linux.txt", &statbuf);
-  printf("1.Mode = %o\n", (insigned int)statbuf.st_mode);
+  printf("1.Mode = %o\n", (unsigned int)statbuf.st_mode);
 
   statbuf.st_mode |= S_IWGRP;
   statbuf.st_mode &= ~(S_IROTH);
