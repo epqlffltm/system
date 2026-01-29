@@ -5,7 +5,7 @@
 
 #include<stdio.h>
 #include<stdlib.h>
-#include<unsistd.h>//Unix Standard
+#include<unistd.h>//Unix Standard
 #include<fcntl.h>//File Contro
 #include<sys/types.h>//System Types
 #include<sys/stat.h>//System Status

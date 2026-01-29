@@ -8,7 +8,7 @@ int main(void)
   int rfd = 0, wfd = 0, n = 0;
   char buf[20];
 
-  ref = open("linux.txt", O_RDONLY);
+  rfd = open("linux.txt", O_RDONLY);
   if(rfd == -1)
   {
     perror("open() error for read linux.txt");
@@ -22,7 +22,7 @@ int main(void)
     exit(1);
   }
 
-  while  (n = read(rfd, buf, sizeof(buf))>0)
+  while  ((n = read(rfd, buf, sizeof(buf)))>0)
   {
     if (write(wfd, buf, n) != n)
     {
