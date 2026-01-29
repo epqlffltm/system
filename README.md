@@ -24,9 +24,9 @@ gcc -o ch1_1 ch1_1.c
 
 2. Makefile 활용 (Chapter 1.3 이후)
 프로젝트 구조가 복잡해지는 1.3 장부터는 make 도구를 사용하여 효율적으로 관리합니다.
+<details>
 
-## chapter01 - 리눅스/유닉스 시스템 프로그래밍의 이해
-
+<summary>## chapter01 - 리눅스/유닉스 시스템 프로그래밍의 이해</summary>
 
 ```ch1_1.c
 #include<stdio.h>
@@ -80,7 +80,8 @@ int main(void)
 에서도 errno=2를 출력할 것이다.
 test.txt가 없기 떄문이다.
 
-
+</summary>
+</details>
 
 
 # 공지 및 출처
