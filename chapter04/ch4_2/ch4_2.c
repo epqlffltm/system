@@ -19,7 +19,7 @@ int main(void)
     perror("open");
     exit(1);
   }
-  close(df);
+  close(fd);
 
   return 0;
 }
