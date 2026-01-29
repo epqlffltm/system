@@ -12,18 +12,18 @@ int main(void)
 {
   int fd = 0;
   char buf[10];
-
-  cd = open("linux.txt", O_RDONLY);
+  
+  fd = open("linux.txt", O_RDONLY);
   if(fd == -1)
   {
-    preer("open() error");
+    perror("open() error");
     exit(1);
   }
 
   int n = read(fd, buf, sizeof(buf)-1);//문자열을은 맨 뒤에 널문자 넣어야 함
   if(n ==-1)
   {
-    preer("read() error");
+    perror("read() error");
     exit(1);
   }
 
