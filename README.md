@@ -28,6 +28,8 @@ gcc -o ch1_1 ch1_1.c
 
 <summary>## chapter01 - 리눅스/유닉스 시스템 프로그래밍의 이해</summary>
 
+### 오류 처리 방법
+
 ```ch1_1.c
 #include<stdio.h>
 #include<unistd.h>
@@ -79,6 +81,68 @@ int main(void)
 ```
 에서도 errno=2를 출력할 것이다.
 test.txt가 없기 떄문이다.
+
+
+### makefile과 make
+대부분의 프로그램들은 다양한 소스 파일 여러개로 이뤄지고, 컴파일할떄, 이것을 하나로 묶어서 사용한다.
+하지만 기존의 gcc로는 이것을 일일히 치기 어렵거니와 하나라도 뺴먹으면 컴파일 오류가 생기기에 쓰기가 힘들다.
+이 문제를 해결하기 위해 여러개의 c파일들을 링크해 하나의 실행파일로 만들어 사용하는 도구로 makefile을 사용한다.
+
+makefile은 컴파일 명령, 사용소스, 링크할 파일, 실행 명령등을 설정하는 파일로, make명령어는 ,makefile을 읽고 지정한 대로 컴파일을 실행한다.
+만약 새로운 c파일이 추가되거나 코드가 수정되어도 makefile만 수정해서 재컴파일 하니 편리하다는 장점이 있다.
+
+```main.c
+#include<stdio.h>
+
+extern int addnum(int a, int b);//외부파일에 정의돤 addnum의 사용을 선언한다.
+
+int main(void)
+{
+  int sum = 0;
+
+  sum = addnum(1,5);//addnum을 호출한다.
+  printf("sum = %d\n",sum);
+
+  return 0;
+}
+```
+
+```addnum.c
+int addnum(int a, int b)
+{
+  int sum = 0;
+
+  for(int i = a; i <= b; i++)
+  {
+    sum += i;
+  }
+
+  return sum;
+}
+```
+
+```Makefile
+#Makefile
+
+CC=gcc #컴파일러를 gcc로 지정
+CFLAGS= #컴파일 옵션이 필요할때 지정
+OBJS=main.o addnum.o #생성될 오브젝트 파일명 지정
+LIBS= #기본 라이브러리외, 다른 라이브러리가 필요하면 지정
+all : add.out #생성될 파일명을 지정
+
+add.out : $(OBJS) #add.out이 어떻게 생성될지 지정
+	$(CC) $(CFLAGS) -o add.out $(OBJS) $(LIBS)
+
+main.o : main.c
+	$(CC) $(CFLAGS) -c main.c
+addnum.o : addnum.c
+	$(CC) $(CFLAGS) -c addnum.c
+
+clean:
+	rm -f $(OBJS) add.out  core
+```
+
+make파일은 c파일을 컴파일해 오브젝트 파일을 만들고, 이를 다시 -o옵션을 사용해 링크하고 실행파일을 만들고 있음을 알수 있다.
 
 </summary>
 </details>
