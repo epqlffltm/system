@@ -3,7 +3,7 @@
 파일 기술자 복사하기
 */
 
-#include<stdil.h>
+#include<stdio.h>
 #include<stdlib.h>
 #include<unistd.h>
 #include<fcntl.h>
@@ -20,10 +20,10 @@ int main(void)
   }
   close(1);
 
-  fd1 = dup(fd);
-  printf("DUP FD=%d\n", fd1);
+  fd_copy = dup(fd);
+  printf("DUP FD=%d\n", fd_copy);
   printf("Hello, World!\n");
-  close(fd);
+  close(fd_copy);
 
   return 0;
 }
