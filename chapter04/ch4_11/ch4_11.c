@@ -1,3 +1,8 @@
+/*
+2026-02-03
+문자기반 입출력 함수 사용하기
+*/
+
 #include<stdio.h>
 #include<stdlib.h>
 
