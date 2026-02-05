@@ -21,7 +21,7 @@ int main(void)
   printf("node name %s\n",uts.nodename);
   printf("release %s\n",uts.release);
   printf("version %s\n",uts.version);
-  printf("maxhine %s\n", uts.maxhine);
+  printf("machine %s\n", uts.machine);
 
   return 0;
 }
