@@ -10,11 +10,16 @@ getpwuid()함수로 저장하기
 
 int main(void)
 {
-  int passed *pw;
+  struct passwd *pw;
 
-  pw = getpwuid*(getuid());
-  printf("UID %s\n",(int)pw->pw_uid);
+  pw = getpwuid(getuid());
+  if(pw == NULL)
+  {
+	  perror("getpwuid 호툴 실패");
+  }
+  printf("UID %d\n",(unsigned int)pw->pw_uid);
   printf("name = %s\n",pw->pw_name);
+  printf("home dir = %s\n",pw->pw_dir);
 
   return 0;
 }
